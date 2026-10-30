@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giữa kì I – Tiếng Việt 4 – Đề 8: Cô giáo và hai em nhỏ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --main:#d9577a; --dark:#9b2f52; --soft:#fde6ee; --bg1:#dff1fb; --bg2:#fdf3f6;
+  --sun:#ffb53d; --ink:#27323f; --paper:#fffdf8; --line:#dde3ea; --mute:#5d6b7a;
+  --ok:#1f9d63; --ok-bg:#e2f7eb; --bad:#d94b4b; --bad-bg:#fdeaea;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Nunito',system-ui,Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.6;background:linear-gradient(180deg,var(--bg1) 0,var(--bg2) 520px,var(--bg2) 100%);}
+h1,h2,h3{font-family:'Baloo 2','Nunito',system-ui,sans-serif;line-height:1.2;margin:0}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 80px}
+.hero{position:relative;margin:0 -14px;overflow:hidden}
+.hero svg{display:block;width:100%;height:auto}
+.hero-title{position:absolute;left:0;right:0;top:4%;text-align:center;padding:0 12px}
+.hero-title .wk{display:inline-block;background:#fff;color:var(--dark);font-weight:800;border-radius:999px;padding:3px 16px;font-size:15px;box-shadow:0 3px 0 rgba(0,0,0,.15)}
+.hero-title h1{font-size:clamp(26px,8.5vw,56px);color:#fff;font-weight:800;text-shadow:0 3px 0 var(--dark),0 6px 14px rgba(0,0,0,.3);margin-top:4px}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:20px 18px;margin-top:18px;box-shadow:0 6px 0 rgba(0,0,0,.07);position:relative}
+.info{display:grid;grid-template-columns:1fr 130px;gap:12px}
+.info label{font-weight:800;font-size:15px;display:block;margin-bottom:4px}
+.info input,.info select{width:100%;font:inherit;padding:11px 14px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+.info select{min-height:52px;font-weight:700}
+.info input[readonly]{background:#eef2f6;font-weight:800}
+#otherWrap{margin-top:8px;display:none}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.prog{position:sticky;top:0;z-index:20;margin:10px -14px 0;padding:8px 14px 6px;background:linear-gradient(180deg,var(--bg1) 70%,rgba(255,255,255,0))}
+.prog .bar{height:12px;border-radius:99px;background:#fff;border:2px solid var(--line);overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--main),var(--sun));transition:width .35s}
+.prog small{display:block;font-weight:800;color:var(--dark);font-size:13.5px;margin-top:2px}
+#snd{position:fixed;right:10px;top:10px;z-index:30;width:44px;height:44px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.35);color:#fff;font-size:21px;cursor:pointer;display:grid;place-items:center;padding:0}
+.section-h{display:flex;align-items:center;gap:12px;margin:34px 0 0}
+.section-h .ico{flex:none;width:54px;height:54px}
+.section-h h2{font-size:27px;color:var(--dark)}
+.section-h p{margin:0;font-size:15px;color:var(--mute)}
+.passage{background:#fff;border-left:6px solid var(--sun);border-radius:14px;padding:14px 18px}
+.passage h3{text-align:center;color:var(--dark);font-size:24px;margin-bottom:8px;letter-spacing:.5px}
+.passage p{margin:0 0 8px}
+.passage .src{text-align:right;font-style:italic;font-weight:700;color:var(--mute);margin:6px 0 0}
+.mini{background:#fff;border-left:6px solid var(--sun);border-radius:12px;padding:10px 14px;margin:6px 0 10px}
+.q-head{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:baseline;margin-bottom:10px}
+.qlab{flex:none;background:var(--main);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:17px;border-radius:999px;padding:0 14px;box-shadow:0 3px 0 var(--dark)}
+.qlab.sm{font-size:15px;padding:0 11px}
+.q-head .t{font-weight:800;font-size:18px;flex:1 1 220px;min-width:0}
+.pts{font-size:13.5px;font-weight:800;color:var(--mute)}
+.part{margin-top:12px;position:relative}
+.part+.part{padding-top:12px;border-top:2px dashed var(--line)}
+.pq{font-weight:800;margin:0 0 8px}
+.hint{font-size:15px;color:var(--mute);margin:-2px 0 10px}
+.opts{display:grid;gap:9px}
+.opts.inline{grid-template-columns:1fr 1fr}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:11px 14px;cursor:pointer;background:#fff;width:100%;min-height:50px}
+.opt b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--dark);display:grid;place-items:center;font-family:'Baloo 2',sans-serif;font-size:16px;margin-top:1px}
+.opt span{flex:1;min-width:0}
+.opt:active{transform:scale(.99)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right b{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong b{background:var(--bad);color:#fff}
+.locked .opt{cursor:default}
+.ff{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:9px;padding:8px 12px;border:2px solid var(--line);border-radius:14px;background:#fff}
+.ff>span.lb{font-weight:800;flex:none}
+.ff input{flex:1 1 150px;min-width:0;font:inherit;font-weight:700;padding:8px 12px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.ff.right{border-color:var(--ok);background:var(--ok-bg)}
+.ff.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.ff .fix{display:none;flex-basis:100%;font-weight:800;color:var(--ok);font-size:14.5px}
+.ff.wrong .fix{display:block}
+textarea{width:100%;min-height:110px;font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);resize:vertical}
+textarea.tall{min-height:260px}
+.note{font-size:14.5px;color:var(--mute);margin:8px 0 0}
+.sugg{display:none;margin-top:12px;background:#fff6dd;border:2px dashed var(--sun);border-radius:14px;padding:12px 14px}
+.graded .sugg{display:block}
+.btn{font-family:'Baloo 2','Nunito',sans-serif;font-weight:800;font-size:22px;border:0;border-radius:999px;padding:12px 38px;cursor:pointer;background:var(--sun);color:#5a3a00;box-shadow:0 6px 0 #d18a12}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #d18a12}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.sm{font-size:17px;padding:8px 24px;margin-top:10px;box-shadow:0 4px 0 #d18a12}
+.btn.green{background:var(--main);color:#fff;box-shadow:0 6px 0 var(--dark);font-size:18px;padding:9px 28px}
+.fb{display:none;margin-top:10px;border-radius:14px;padding:10px 14px;font-weight:700}
+.fb.show{display:block}
+.fb.ok{background:var(--ok-bg);border:2px solid var(--ok)}
+.fb.no{background:var(--bad-bg);border:2px solid var(--bad)}
+.fb .h{font-family:'Baloo 2',sans-serif;font-size:20px;font-weight:800}
+.fb.ok .h{color:#12724a}.fb.no .h{color:#a73232}
+.fb p{margin:2px 0 0;font-weight:700}
+.fb p.why{font-weight:600;color:var(--mute)}
+.stars{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.stars i{position:absolute;font-style:normal;font-size:20px;left:50%;top:40%;animation:burst .9s ease-out forwards}
+@keyframes burst{from{transform:translate(0,0) scale(.6);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.2);opacity:0}}
+.submit-zone{text-align:center;margin-top:30px}
+#msg{color:var(--bad);font-weight:800;min-height:26px;margin:10px 0 0}
+#result{display:none;text-align:center;background:linear-gradient(180deg,#fff8e1,#fffdf6);border-color:var(--sun)}
+#result.show{display:block}
+#result .em{font-size:60px;line-height:1}
+#result .sc{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:46px;color:var(--dark);line-height:1.1}
+#result .s10{font-weight:800;color:#b36b00}
+#result table{margin:12px auto;border-collapse:collapse;font-size:15.5px}
+#result td{padding:4px 12px;border-bottom:1px dashed var(--line);text-align:left}
+#result td:last-child{text-align:right;font-weight:800}
+#sendInfo{font-weight:800;margin:6px 0 10px}
+.score-tag{display:none;float:right;font-weight:800;font-size:13.5px;border-radius:999px;padding:1px 12px;color:#fff;margin-left:8px}
+.score-tag.show{display:inline-block}
+.score-tag.full{background:var(--ok)}.score-tag.part{background:#e59a1c}.score-tag.zero{background:var(--bad)}
+@media (max-width:600px){
+  body{font-size:16px}
+  .info{grid-template-columns:1fr}
+  .opts.inline{grid-template-columns:1fr}
+}
+.cloud{animation:drift 30s linear infinite alternate}
+@keyframes drift{to{transform:translateX(40px)}}
+.wave{animation:wv 6s ease-in-out infinite alternate}
+@keyframes wv{to{transform:translateX(-26px)}}
+.fly{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes bob{50%{transform:translate(8px,-10px) rotate(4deg)}}
+.twinkle{animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.35}}
+.sway{animation:sway 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes sway{50%{transform:rotate(3deg)}}
+.rise{animation:rise 5s ease-in infinite;transform-box:fill-box}
+@keyframes rise{0%{transform:translateY(24px);opacity:0}20%{opacity:1}100%{transform:translateY(-70px);opacity:0}}
+.flick{animation:flick 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes flick{50%{transform:scale(1.08,.92)}}
+.flagw{animation:fw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:0% 50%}
+@keyframes fw{50%{transform:skewY(-5deg) scaleX(.95)}}
+.spot{animation:sp 4s ease-in-out infinite}
+@keyframes sp{50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.cloud,.wave,.fly,.twinkle,.sway,.rise,.flick,.flagw,.spot{animation:none}.stars{display:none}html{scroll-behavior:auto}.prog .bar i{transition:none}}
+</style>
+</head>
+<body>
+<button id="snd" type="button" aria-label="Tắt âm thanh" title="Bật/tắt âm thanh">🔊</button>
+<div class="wrap">
+
+<div class="hero">
+<svg viewBox="0 -120 820 520" role="img" aria-label="Tranh vẽ cô giáo mặc áo dài trắng đứng cạnh bé Na đeo cặp và bạn nhỏ ngồi xe lăn trước ngôi trường, có hoa, bướm và những ngôi sao lấp lánh">
+  <defs>
+    <linearGradient id="sky8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc7ee"/><stop offset=".6" stop-color="#cfeaf6"/><stop offset="1" stop-color="#ffe4d6"/></linearGradient>
+    <radialGradient id="sun8" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3b0"/><stop offset=".55" stop-color="#ffc94d"/><stop offset="1" stop-color="#ffc94d" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect y="-120" width="820" height="520" fill="url(#sky8)"/>
+  <circle cx="720" cy="150" r="80" fill="url(#sun8)"/><circle cx="720" cy="150" r="34" fill="#ffb53d"/>
+  <g fill="#fff" opacity=".92"><g class="cloud"><ellipse cx="150" cy="120" rx="48" ry="15"/><ellipse cx="180" cy="110" rx="30" ry="14"/></g><g class="cloud" style="animation-delay:-13s"><ellipse cx="520" cy="150" rx="42" ry="13"/><ellipse cx="545" cy="142" rx="24" ry="12"/></g></g>
+  <path d="M0 300 Q160 245 330 292 T650 280 T820 292 V400 H0Z" fill="#a9dba0"/><path d="M0 335 Q220 292 430 330 T820 322 V400 H0Z" fill="#6cc17a"/>
+  <g><rect x="40" y="226" width="200" height="104" rx="4" fill="#fff3d6" stroke="#c99a5b" stroke-width="3"/>
+    <path d="M24 232 L140 176 L256 232Z" fill="#d9704a" stroke="#a8472a" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="124" y="268" width="32" height="62" rx="3" fill="#b9714a"/>
+    <rect x="62" y="252" width="40" height="34" fill="#bfe6f7" stroke="#8b5a2b" stroke-width="3"/><rect x="178" y="252" width="40" height="34" fill="#bfe6f7" stroke="#8b5a2b" stroke-width="3"/>
+    <path d="M82 252 v34 M62 269 h40 M198 252 v34 M178 269 h40" stroke="#8b5a2b" stroke-width="2"/></g>
+  <g class="twinkle" fill="#ffd23d"><path d="M392 170 l5 11 l11 5 l-11 5 l-5 11 l-5 -11 l-11 -5 l11 -5z"/><path d="M440 128 l4 9 l9 4 l-9 4 l-4 9 l-4 -9 l-9 -4 l9 -4z"/><path d="M345 120 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3z"/></g>
+  <!-- Na -->
+  <g transform="translate(385 0)"><rect x="-30" y="268" width="16" height="30" rx="5" fill="#d7262e"/>
+    <path d="M-18 270 L18 270 L26 346 L-26 346Z" fill="#f26d85"/><rect x="-6" y="346" width="7" height="22" fill="#f5c9a0"/><rect x="6" y="346" width="7" height="22" fill="#f5c9a0"/>
+    <circle cx="0" cy="248" r="23" fill="#f5c9a0"/><path d="M-24 246 Q-22 222 0 222 Q22 222 24 246 Q10 236 0 238 Q-10 236 -24 246Z" fill="#2b2118"/>
+    <circle cx="-30" cy="256" r="8" fill="#2b2118"/><circle cx="30" cy="256" r="8" fill="#2b2118"/>
+    <circle cx="-8" cy="250" r="2.8" fill="#2b2118"/><circle cx="8" cy="250" r="2.8" fill="#2b2118"/><path d="M-7 259 q7 6 14 0" fill="none" stroke="#2b2118" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="12" y="288" width="40" height="30" rx="2" fill="#fff" stroke="#8b8b8b" stroke-width="2" transform="rotate(-8 32 303)"/>
+    <path d="M26 296 l3 7 l7 1 l-5 5 l1 7 l-6 -4 l-6 4 l1 -7 l-5 -5 l7 -1z" fill="#ffd23d" transform="rotate(-8 32 303) scale(.8) translate(8 70)"/>
+    <path d="M-16 276 Q-30 300 -8 310 M16 276 Q26 296 14 306" fill="none" stroke="#f5c9a0" stroke-width="7" stroke-linecap="round"/></g>
+  <!-- cô giáo -->
+  <g transform="translate(495 0)">
+    <path d="M-26 190 Q-26 176 0 176 Q26 176 26 190 Z" fill="#2b2118" opacity="0"/>
+    <circle cx="0" cy="178" r="26" fill="#f5c9a0"/><path d="M-27 176 Q-28 148 0 148 Q28 148 27 176 Q12 160 0 162 Q-12 160 -27 176Z" fill="#2b2118"/><circle cx="0" cy="146" r="12" fill="#2b2118"/>
+    <circle cx="-9" cy="180" r="3" fill="#2b2118"/><circle cx="9" cy="180" r="3" fill="#2b2118"/><path d="M-9 190 q9 8 18 0" fill="none" stroke="#c0394d" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-24 208 Q0 198 24 208 L36 296 L44 372 L-44 372 L-36 296Z" fill="#fff" stroke="#9fc4e0" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M0 202 V372" stroke="#cfe2f0" stroke-width="3"/><path d="M-24 208 Q0 218 24 208" fill="none" stroke="#9fc4e0" stroke-width="3"/>
+    <path d="M-24 214 Q-44 262 -24 284 M24 214 Q44 250 22 282" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/><path d="M-24 214 Q-44 262 -24 284 M24 214 Q44 250 22 282" fill="none" stroke="#9fc4e0" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+    <circle cx="-24" cy="286" r="7" fill="#f5c9a0"/><circle cx="22" cy="284" r="7" fill="#f5c9a0"/></g>
+  <!-- Nết trên xe lăn -->
+  <g transform="translate(615 0)">
+    <path d="M-24 258 L-24 330 L22 330" fill="none" stroke="#4d5c6b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-4" cy="342" r="30" fill="none" stroke="#33414f" stroke-width="6"/><circle cx="-4" cy="342" r="4" fill="#33414f"/>
+    <path d="M-4 342 V312 M-4 342 V372 M-4 342 H-34 M-4 342 H26" stroke="#33414f" stroke-width="2" opacity=".6"/>
+    <circle cx="40" cy="372" r="11" fill="none" stroke="#33414f" stroke-width="5"/>
+    <path d="M-18 276 L12 276 L22 318 L-20 318Z" fill="#ffd23d"/><path d="M-10 318 H28 V332 H-10Z" fill="#ffd23d"/><rect x="18" y="330" width="18" height="30" rx="5" fill="#f5c9a0"/>
+    <circle cx="0" cy="252" r="22" fill="#f5c9a0"/><path d="M-23 250 Q-21 227 0 227 Q21 227 23 250 Q10 240 0 242 Q-10 240 -23 250Z" fill="#2b2118"/><path d="M20 244 Q36 262 22 288" fill="none" stroke="#2b2118" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="-7" cy="254" r="2.8" fill="#2b2118"/><circle cx="7" cy="254" r="2.8" fill="#2b2118"/><path d="M-6 263 q6 6 12 0" fill="none" stroke="#2b2118" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M-12 282 Q-28 300 -14 316" fill="none" stroke="#f5c9a0" stroke-width="6" stroke-linecap="round"/></g>
+  <g class="sway"><path d="M720 400 v-44" stroke="#2f8f5b" stroke-width="4" stroke-linecap="round"/><g fill="#f26d85"><circle cx="720" cy="344" r="9"/><circle cx="731" cy="355" r="9"/><circle cx="720" cy="366" r="9"/><circle cx="709" cy="355" r="9"/></g><circle cx="720" cy="355" r="6" fill="#ffd23d"/></g>
+  <g class="sway" style="animation-delay:-2s"><path d="M770 400 v-34" stroke="#2f8f5b" stroke-width="4" stroke-linecap="round"/><g fill="#fff"><circle cx="770" cy="356" r="8"/><circle cx="780" cy="366" r="8"/><circle cx="770" cy="376" r="8"/><circle cx="760" cy="366" r="8"/></g><circle cx="770" cy="366" r="5" fill="#ffb53d"/></g>
+  <g class="fly"><g transform="translate(300 260)"><ellipse cx="-8" cy="-5" rx="9" ry="7" fill="#ffd66b" stroke="#e59a1c" stroke-width="2"/><ellipse cx="8" cy="-5" rx="9" ry="7" fill="#ffd66b" stroke="#e59a1c" stroke-width="2"/><rect x="-1.5" y="-9" width="3" height="18" rx="1.5" fill="#27323f"/></g></g>
+</svg>
+<div class="hero-title"><span class="wk">Giữa kì I – Tiếng Việt 4 – Đề 8</span><h1>Cô giáo và hai em nhỏ</h1></div>
+</div>
+
+<div class="prog" aria-label="Tiến độ làm bài"><div class="bar"><i id="progBar"></i></div><small id="progTxt"></small></div>
+
+<div class="card info">
+  <div><label for="studentName">Họ và tên của em</label>
+    <div id="nameBox"><input id="studentName" type="text" autocomplete="name" placeholder="Nhập họ và tên của em..."></div>
+    <div id="otherWrap"><input id="otherName" type="text" placeholder="Nhập họ và tên của em..." aria-label="Họ và tên của em"></div>
+  </div>
+  <div><label for="studentClass">Lớp</label><input id="studentClass" type="text" placeholder="VD: 4A"></div>
+</div>
+
+<div id="content"></div>
+
+<div class="submit-zone">
+  <button class="btn" id="submitBtn" type="button">Nộp bài</button>
+  <p id="msg" role="alert"></p>
+</div>
+
+<div class="card" id="result" tabindex="-1">
+  <div class="em" id="rEm"></div>
+  <div class="sc" id="rSc"></div>
+  <div class="s10" id="r10"></div>
+  <p id="rMsg" style="font-weight:800;margin:8px 0 0"></p>
+  <table id="rTab"></table>
+  <p id="sendInfo" role="status"></p>
+  <button class="btn sm" id="resendBtn" type="button" style="display:none">Gửi lại điểm</button>
+  <p class="note" style="margin-bottom:14px">Em kéo lên xem lại: ô xanh là đúng, ô đỏ là chưa đúng (đáp án đúng được ghi bên cạnh). Các câu tự viết cô sẽ chấm sau.</p>
+  <button class="btn green" id="retryBtn" type="button">Làm lại từ đầu</button>
+</div>
+
+</div>
+<script>
+(function(){
+"use strict";
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxcmRHrOmXUrow5v79Xe0Eagd_rfxD8nxGqnTwjnieRWuLZBpgVORHnRJ3ec_4WQ7nI/exec';
+var BAI="Giữa kì I - Đề 8";
+var LOP_LINK=(new URLSearchParams(location.search).get('lop')||'').trim();
+var CFG={"sections": [{"icon": "book", "title": "I. Đọc hiểu", "sub": "Em đọc thầm bài thật kĩ rồi làm bài nhé. Chạm vào đáp án em chọn, máy sẽ chấm ngay!", "blocks": [{"t": "passage", "title": "CÔ GIÁO VÀ HAI EM NHỎ", "paras": ["Khi em Na vào lớp 1, ở nhà một mình Nết buồn lắm, chỉ mong Na chóng tan trường về kể chuyện ở trường cho Nết nghe. Na kể rất nhiều về cô giáo: tà áo dài của cô trắng muốt, miệng cô cười tươi như hoa, cô đi nhẹ nhàng đến bên từng học sinh dạy các bạn viết, vẽ,... Nghe Na kể, Nết ước mơ được đi học như Na.", "Trong một tiết học vẽ, cô giáo cầm vở vẽ của Na. Na vẽ một cô gái đang cầm đôi đũa nhỏ đang đứng bên một cô gái. Na giải thích: “Em vẽ một cô tiên đang gõ đũa thần chữa đôi chân cho chị em, để chị em cũng được đi học”. Cô giáo ngạc nhiên khi biết chị gái Na bị tật nguyền. Tối hôm ấy, cô đến thăm Nết. Biết Nết ham học, mỗi tuần ba buổi tối, cô dạy Nết học. Còn một tháng nữa là kết thúc năm học. Mấy hôm nay, cô giáo thường kể cho 35 học trò của mình về một bạn nhỏ. Đôi chân bạn ấy không may bị tê liệt nên phải ngồi xe lăn nhưng bạn vẫn quyết tâm học. Có lúc đau tê cứng cả lưng nhưng bạn vẫn cố viết và viết rất đẹp. Năm học sau, bạn ấy sẽ vào học cùng các em. Nghe cô kể, mắt Na sáng lên, Na vui và tự hào về chị mình lắm.", "Bố mẹ Nết rơm rớm nước mắt khi biết nhà trường sẽ đặc cách cho Nết vào học lớp Hai. Còn Nết, cô bé đang hình dung cảnh cô giáo cùng các bạn nhỏ xúm xít đẩy chiếc xe lăn."], "src": "(Theo Tâm huyết nhà giáo)"}, {"num": 1, "q": "Hoàn cảnh của bạn Nết có gì đặc biệt?", "pre": null, "parts": [{"type": "mc", "pts": 0.5, "opts": ["Bị tật bẩm sinh, càng lớn đôi chân càng teo đi.", "Gia đình Nết khó khăn không cho đi học.", "Nết mồ côi cha mẹ từ nhỏ.", "Nết học yếu nên không thích đi học."], "a": 0, "why": "Nết bị tật ở đôi chân nhưng rất ham học và luôn mong được đến trường."}]}, {"num": 2, "q": "Nết đã gặp phải bất hạnh gì?", "pre": null, "parts": [{"type": "mc", "pts": 0.5, "opts": ["Đôi mắt không nhìn rõ.", "Đôi chân bị tật, càng lớn càng teo đi.", "Không có bạn bè.", "Không được bố mẹ yêu thương."], "a": 1, "why": "Nết có đôi chân bị tật, càng lớn càng teo đi."}]}, {"num": 3, "q": "Nghe cô giáo kể về chị mình, Na có cảm xúc gì?", "pre": null, "parts": [{"type": "mc", "pts": 0.5, "opts": ["Xấu hổ vì có người chị tật nguyền.", "Na vui và tự hào về chị mình.", "Buồn vì chị không được đi học.", "Tủi thân vì có người chị tật nguyền."], "a": 1, "why": "Bài đọc: “mắt Na sáng lên, Na vui và tự hào về chị mình lắm.”"}]}, {"num": 4, "q": "Cô giáo đã làm gì để giúp Nết?", "pre": null, "parts": [{"type": "mc", "pts": 0.5, "opts": ["Mua cho bạn một chiếc xe lăn.", "Cho Nết sách vở để đến lớp cùng bạn.", "Mỗi tuần ba buổi tối, cô dạy Nết học.", "Nhờ học sinh trong lớp kèm cặp Nết ở nhà."], "a": 2, "why": "Bài đọc: “Biết Nết ham học, mỗi tuần ba buổi tối, cô dạy Nết học.”"}]}, {"num": 5, "q": "Qua câu chuyện, em thấy Nết là cô bé như thế nào?", "pre": null, "parts": [{"type": "open", "sugg": "Nết là cô bé có hoàn cảnh bất hạnh nhưng rất ham học, chăm chỉ, kiên trì và có ý chí vượt khó. Bạn luôn mơ ước được đến trường như các bạn cùng trang lứa.", "tall": false}]}]}, {"icon": "aa", "title": "II. Luyện từ và câu", "sub": "Tìm hiểu từ điển, viết hoa, danh từ và động từ.", "blocks": [{"num": 6, "q": "Trong từ điển Tiếng Việt, các từ thường được sắp xếp theo thứ tự nào?", "pre": null, "parts": [{"type": "mc", "pts": 0.5, "opts": ["Theo số lượng chữ cái trong từ.", "Theo tần suất sử dụng.", "Theo thứ tự bảng chữ cái.", "Theo chủ đề."], "a": 2, "why": "Từ điển sắp xếp các từ theo thứ tự bảng chữ cái."}]}, {"num": 7, "q": "Cách viết nào dưới đây đúng quy tắc viết tên cơ quan, tổ chức?", "pre": null, "parts": [{"type": "mc", "pts": 0.5, "opts": ["Tập đoàn Điện lực Việt Nam.", "Tập đoàn điện lực Việt Nam.", "tập đoàn Điện lực Việt Nam.", "Tập Đoàn Điện Lực Việt Nam."], "a": 0, "why": "Các phương án còn lại viết hoa chưa đúng quy tắc tên cơ quan, tổ chức."}]}, {"num": 8, "q": "Đọc câu văn sau: “Cô giáo ân cần hướng dẫn các học sinh luyện viết bài.” Từ nào dưới đây là danh từ chung?", "pre": null, "parts": [{"type": "mc", "pts": 1.5, "opts": ["Cô giáo", "Ân cần", "Hướng dẫn", "Luyện viết"], "a": 0, "why": "“Cô giáo” chỉ người nên là danh từ chung; “hướng dẫn”, “luyện viết” chỉ hoạt động."}]}, {"num": 9, "q": "Đọc đoạn văn sau và chọn câu nêu ý chính của đoạn văn.", "pre": "<div class=\"mini\">Nết sinh ra đã bất hạnh với bàn chân tật thiếu ba ngón. Càng lớn, đôi chân Nết lại càng teo đi. Tuy vậy, Nết rất ham học và luôn mong muốn được đến trường.<\/div>", "parts": [{"type": "mc", "pts": 0.5, "opts": ["Nết có một người em gái tên là Na.", "Na rất thích học vẽ.", "Cô giáo thường đến thăm gia đình Nết.", "Nết là cô bé có hoàn cảnh bất hạnh nhưng ham học."], "a": 3, "why": "Đoạn văn nói Nết bất hạnh về đôi chân nhưng rất ham học."}]}, {"num": 10, "q": "Đọc hai câu sau và cho biết từ “muối” thuộc từ loại nào:", "pre": "<div class=\"mini\"><p style=\"margin:0\">a) Mẹ em <b>muối<\/b> dưa cải để ăn dần.<\/p><p style=\"margin:0\">b) Bà cho thêm một thìa <b>muối<\/b> vào nồi canh.<\/p><\/div>", "parts": [{"type": "mc", "k": "a", "pts": 0.5, "inline": true, "q": "Ở câu a, từ “muối” là:", "opts": ["Động từ", "Danh từ"], "a": 0, "why": "Ở câu a, “muối” chỉ hoạt động muối dưa nên là động từ."}, {"type": "mc", "k": "b", "pts": 0.5, "inline": true, "q": "Ở câu b, từ “muối” là:", "opts": ["Động từ", "Danh từ"], "a": 1, "why": "Ở câu b, “muối” chỉ một loại gia vị nên là danh từ."}, {"type": "open", "k": "c", "lab": "Câu 10 – vì sao", "q": "Vì sao? Em giải thích ngắn gọn (không bắt buộc, cô sẽ xem):", "sugg": "Câu a: “muối” chỉ hoạt động chế biến thực phẩm (động từ). Câu b: “muối” chỉ một loại gia vị (danh từ)."}]}]}, {"icon": "pen", "title": "III. Viết", "sub": "Em viết bài văn của mình vào ô bên dưới nhé.", "blocks": [{"num": 11, "qlab": "Bài viết", "q": "Em hãy viết bài văn kể lại một câu chuyện em thích.", "parts": [{"type": "open", "lab": "Bài viết", "tall": true, "sugg": "Gợi ý bố cục: Mở bài – giới thiệu câu chuyện (mở trực tiếp hoặc gián tiếp). Thân bài – kể câu chuyện theo các sự việc, đủ nhân vật, tình huống chính. Kết bài – nêu suy nghĩ, cảm xúc về câu chuyện."}]}]}]};
+
+var ICONS={
+ book:'<svg class="ico" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="27" fill="#ffe2a8"/><path d="M10 18 q9 -5 17 0 v22 q-8 -5 -17 0z" fill="#fff" stroke="#9b2f52" stroke-width="2.5" stroke-linejoin="round"/><path d="M44 18 q-9 -5 -17 0 v22 q8 -5 17 0z" fill="#fff" stroke="#9b2f52" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 24 h9 M14 29 h9 M31 24 h9 M31 29 h9" stroke="#f26d85" stroke-width="2" stroke-linecap="round"/></svg>',
+ aa:'<svg class="ico" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="27" fill="#cfeaf6"/><rect x="15" y="12" width="26" height="32" rx="4" fill="#ffb53d" stroke="#b36b00" stroke-width="2.5"/><rect x="15" y="12" width="6" height="32" fill="#e59a1c"/><text x="31" y="33" text-anchor="middle" font-family="Arial" font-weight="700" font-size="13" fill="#fff">Aa</text></svg>',
+ pen:'<svg class="ico" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="27" fill="#fde0e8"/><path d="M14 40 l3 -9 l17 -17 l6 6 l-17 17z" fill="#ffd66b" stroke="#b36b00" stroke-width="2.5" stroke-linejoin="round"/><path d="M34 14 l6 6" stroke="#f26d85" stroke-width="5" stroke-linecap="round"/><path d="M14 40 l3 -9 l6 6z" fill="#fff" stroke="#b36b00" stroke-width="2"/></svg>'
+};
+function $(id){return document.getElementById(id);}
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function fmt(n){return (Math.round(n*100)/100).toString().replace('.',',');}
+function norm(s){return String(s||'').normalize('NFC').toLocaleLowerCase('vi').replace(/[\s ]+/g,' ').replace(/^[\s"“”'.,;:!?]+|[\s"“”'.,;:!?]+$/g,'').trim();}
+
+/* ---------- âm thanh ---------- */
+var soundOn=true,AC=null;
+function ctx(){if(!AC){try{var C=window.AudioContext||window.webkitAudioContext;if(C)AC=new C();}catch(e){}}
+  if(AC&&AC.state==='suspended'){try{AC.resume();}catch(e){}}return AC;}
+function tone(f,t0,dur,type,vol){var a=ctx();if(!a)return;
+  var o=a.createOscillator(),g=a.createGain();o.type=type;o.frequency.value=f;
+  var t=a.currentTime+t0;g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+dur+0.05);}
+function playOk(){if(!soundOn)return;try{tone(988,0,.16,'sine',.22);tone(1319,.14,.28,'sine',.22);}catch(e){}}
+function playNo(){if(!soundOn)return;try{tone(233,0,.22,'sine',.14);tone(196,.16,.3,'sine',.12);}catch(e){}}
+$('snd').addEventListener('click',function(){soundOn=!soundOn;this.textContent=soundOn?'🔊':'🔇';this.setAttribute('aria-label',soundOn?'Tắt âm thanh':'Bật âm thanh');if(soundOn){ctx();playOk();}});
+
+/* ---------- dựng giao diện ---------- */
+var ITEMS=[],OPENS=[],graded=false,warned=false,okN=0,noN=0;
+var PRAISE=['Đúng rồi! 🎉','Giỏi quá! ⭐','Chính xác! 👏','Tuyệt vời! 🌟','Hay lắm! 💯'];
+var SORRY=['Chưa đúng, cố lên nhé!','Gần rồi, lần sau sẽ đúng!','Chưa chính xác, em xem đáp án nhé.'];
+function burst(card){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var s=el('div','stars');s.setAttribute('aria-hidden','true');
+  for(var i=0;i<7;i++){var st=el('i',null,'⭐');var ang=(i/7)*Math.PI*2;st.style.setProperty('--dx',Math.round(Math.cos(ang)*70)+'px');st.style.setProperty('--dy',Math.round(Math.sin(ang)*50-20)+'px');s.appendChild(st);}
+  card.appendChild(s);setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},1000);
+}
+function partLabel(q,p,multi){return p.lab?p.lab:'Câu '+q.num+(multi?p.k:'');}
+function updProg(){
+  var total=ITEMS.length,done=ITEMS.filter(function(i){return i.done;}).length;
+  $('progBar').style.width=(total?Math.round(done*100/total):0)+'%';
+  $('progTxt').textContent='Đã chấm '+done+'/'+total+' câu';
+}
+function setTag(it,tagEl){
+  tagEl.textContent=fmt(it.earned)+'/'+fmt(it.max)+' điểm';
+  tagEl.className='score-tag show '+(it.earned>=it.max?'full':(it.earned<=0?'zero':'part'));
+}
+function showFb(box,ok,head,lines,why){
+  box.className='fb show '+(ok?'ok':'no');
+  box.innerHTML='<div class="h"></div>';box.querySelector('.h').textContent=head;
+  lines.forEach(function(l){var p=el('p');p.textContent=l;box.appendChild(p);});
+  if(why){var w=el('p','why');w.textContent='💡 '+why;box.appendChild(w);}
+}
+
+function buildMC(q,p,multi,wrap,card){
+  var lab=partLabel(q,p,multi);
+  var it={label:lab,max:p.pts,earned:0,done:false};
+  var tag=q._tag;
+  if(multi){
+    var head=el('div','q-head');head.appendChild(el('span','qlab sm',lab));
+    if(p.q){var t=el('span','t');t.innerHTML=p.q;head.appendChild(t);}
+    head.appendChild(el('span','pts',fmt(p.pts)+' điểm'));tag=el('span','score-tag');head.appendChild(tag);
+    wrap.appendChild(head);
+  }
+  if(p.pre){wrap.insertAdjacentHTML('beforeend',p.pre);}
+  var opts=el('div','opts'+(p.inline?' inline':''));wrap.appendChild(opts);
+  var fb=el('div','fb');fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');wrap.appendChild(fb);
+  var btns=[];
+  function finish(pick,forced){
+    if(it.done)return;it.done=true;it.pick=pick;
+    var ok=(pick===p.a);it.earned=ok?p.pts:0;
+    wrap.classList.add('locked');
+    btns.forEach(function(b,j){b.disabled=false;b.setAttribute('aria-disabled','true');
+      if(j===p.a)b.classList.add('right');else if(j===pick)b.classList.add('wrong');});
+    var right='Đáp án đúng: '+'ABCD'[p.a]+'. '+p.opts[p.a];
+    if(ok){showFb(fb,true,PRAISE[okN++%PRAISE.length],[],p.why);}
+    else if(pick==null){showFb(fb,false,'Em chưa chọn đáp án.',[right],p.why);}
+    else{showFb(fb,false,SORRY[noN++%SORRY.length],[right],p.why);}
+    setTag(it,tag);updProg();
+    if(!forced){if(ok){playOk();burst(card);}else playNo();}
+  }
+  p.opts.forEach(function(t,j){
+    var b=el('button','opt','<b>'+'ABCD'[j]+'</b><span></span>');b.type='button';b.querySelector('span').textContent=t;
+    b.addEventListener('click',function(){finish(j,false);});
+    opts.appendChild(b);btns.push(b);
+  });
+  it.force=function(){finish(null,true);};
+  it.reset=function(){it.done=false;it.earned=0;it.pick=null;wrap.classList.remove('locked');
+    btns.forEach(function(b){b.classList.remove('right','wrong');b.removeAttribute('aria-disabled');});
+    fb.className='fb';fb.innerHTML='';tag.className='score-tag';tag.textContent='';};
+  ITEMS.push(it);
+}
+
+function buildFill(q,p,multi,wrap,card){
+  var lab=partLabel(q,p,multi);
+  var max=p.fields.reduce(function(s,f){return s+f.pts;},0);
+  var it={label:lab,max:max,earned:0,done:false};
+  var tag=q._tag;
+  if(multi){
+    var head=el('div','q-head');head.appendChild(el('span','qlab sm',lab));
+    if(p.q){var t=el('span','t');t.innerHTML=p.q;head.appendChild(t);}
+    head.appendChild(el('span','pts',fmt(max)+' điểm'));tag=el('span','score-tag');head.appendChild(tag);
+    wrap.appendChild(head);
+  }
+  if(p.pre)wrap.insertAdjacentHTML('beforeend',p.pre);
+  var rows=[],inputs=[];
+  p.fields.forEach(function(f,i){
+    var r=el('div','ff','<span class="lb"></span><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><span class="fix"></span>');
+    r.querySelector('.lb').textContent=f.lb;var inp=r.querySelector('input');inp.setAttribute('aria-label',lab+' – '+f.lb);
+    inp.addEventListener('input',upd);wrap.appendChild(r);rows.push(r);inputs.push(inp);
+  });
+  var btn=el('button','btn sm','Kiểm tra câu này');btn.type='button';btn.disabled=true;wrap.appendChild(btn);
+  var fb=el('div','fb');fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');wrap.appendChild(fb);
+  function upd(){btn.disabled=it.done||!inputs.some(function(x){return x.value.trim();});}
+  function finish(forced){
+    if(it.done)return;it.done=true;btn.disabled=true;
+    var used=[],e=0,good=0;
+    p.fields.forEach(function(f,i){
+      var v=norm(inputs[i].value),ok=!!v&&f.ok.indexOf(v)>=0&&used.indexOf(v)<0;
+      if(ok){used.push(v);e+=f.pts;good++;}
+      rows[i].classList.add(ok?'right':'wrong');inputs[i].disabled=true;
+      rows[i].querySelector('.fix').textContent='Đáp án đúng: '+f.show;
+    });
+    it.earned=e;setTag(it,tag);updProg();
+    if(good===p.fields.length){showFb(fb,true,PRAISE[okN++%PRAISE.length],[],p.why);if(!forced){playOk();burst(card);}}
+    else if(good>0){showFb(fb,false,'Gần đúng! Em đúng '+good+'/'+p.fields.length+' ý.',['Xem đáp án ở các ô đỏ nhé.'],p.why);if(!forced)playNo();}
+    else{showFb(fb,false,SORRY[noN++%SORRY.length],['Xem đáp án ở các ô bên trên nhé.'],p.why);if(!forced)playNo();}
+  }
+  btn.addEventListener('click',function(){finish(false);});
+  it.force=function(){finish(true);};
+  it.reset=function(){it.done=false;it.earned=0;inputs.forEach(function(x){x.value='';x.disabled=false;});
+    rows.forEach(function(r){r.classList.remove('right','wrong');});btn.disabled=true;fb.className='fb';fb.innerHTML='';tag.className='score-tag';tag.textContent='';};
+  ITEMS.push(it);
+}
+
+function buildOpen(q,p,multi,wrap){
+  var lab=partLabel(q,p,multi);
+  if(multi){
+    var head=el('div','q-head');head.appendChild(el('span','qlab sm',lab));
+    if(p.q){var t=el('span','t');t.innerHTML=p.q;head.appendChild(t);}
+    wrap.appendChild(head);
+  }
+  if(p.pre)wrap.insertAdjacentHTML('beforeend',p.pre);
+  var ta=el('textarea',p.tall?'tall':'');ta.placeholder='Em viết câu trả lời của mình vào đây...';ta.setAttribute('aria-label',lab);
+  wrap.appendChild(ta);
+  wrap.appendChild(el('p','note','✏️ Phần này em tự viết, máy không chấm. Cô sẽ chấm và nhận xét sau.'));
+  if(p.sugg){wrap.appendChild(el('div','sugg','<b>Gợi ý để em đối chiếu:</b> '+p.sugg));}
+  OPENS.push({label:lab,ta:ta});
+}
+
+function build(){
+  var root=$('content');
+  CFG.sections.forEach(function(s){
+    var h=el('div','section-h',ICONS[s.icon]+'<div><h2></h2><p></p></div>');
+    h.querySelector('h2').textContent=s.title;h.querySelector('p').textContent=s.sub||'';root.appendChild(h);
+    s.blocks.forEach(function(b){
+      if(b.t==='passage'){
+        var c=el('div','card');var ps=el('div','passage');
+        ps.innerHTML='<h3></h3>'+b.paras.map(function(x){return '<p>'+x+'</p>';}).join('')+(b.src?'<p class="src">'+b.src+'</p>':'');
+        ps.querySelector('h3').textContent=b.title;c.appendChild(ps);root.appendChild(c);return;
+      }
+      var q=b;var card=el('div','card q');card.id='q'+q.num;
+      var multi=q.parts.length>1;
+      var hd=el('div','q-head');hd.appendChild(el('span','qlab',q.qlab||('Câu '+q.num)));
+      if(q.q){var tt=el('span','t');tt.innerHTML=q.q;hd.appendChild(tt);}
+      if(!multi&&q.parts[0].type!=='open'){
+        var pp=q.parts[0];var pts=pp.type==='fill'?pp.fields.reduce(function(a,f){return a+f.pts;},0):pp.pts;
+        hd.appendChild(el('span','pts',fmt(pts)+' điểm'));q._tag=el('span','score-tag');hd.appendChild(q._tag);
+      }
+      card.appendChild(hd);
+      if(q.hint)card.appendChild(el('p','hint',q.hint));
+      if(q.pre)card.insertAdjacentHTML('beforeend',q.pre);
+      q.parts.forEach(function(p){
+        var w=el('div','part');card.appendChild(w);
+        if(p.type==='mc'){buildMC(q,multi?p:Object.assign({},p,{q:null}),multi,w,card);}
+        else if(p.type==='fill'){buildFill(q,multi?p:Object.assign({},p,{q:null}),multi,w,card);}
+        else buildOpen(q,multi?p:Object.assign({},p,{q:null}),multi,w);
+      });
+      root.appendChild(card);
+    });
+  });
+}
+build();updProg();
+/* ---------- tên và lớp theo link ---------- */
+var rosterSel=null;
+function curName(){
+  if(rosterSel){var v=rosterSel.value;if(v&&v!=='__other')return v;if(v==='__other')return $('otherName').value.trim();return '';}
+  return $('studentName').value.trim();
+}
+if(LOP_LINK){
+  var cl=$('studentClass');cl.value=LOP_LINK;cl.readOnly=true;cl.setAttribute('aria-readonly','true');
+  try{
+    var ctrl=('AbortController' in window)?new AbortController():null;
+    var to=setTimeout(function(){if(ctrl)ctrl.abort();},5000);
+    fetch(GAS_URL+'?action=roster&lop='+encodeURIComponent(LOP_LINK),ctrl?{signal:ctrl.signal}:undefined)
+      .then(function(r){return r.json();})
+      .then(function(d){
+        clearTimeout(to);
+        if(d&&d.ok&&d.names&&d.names.length){
+          var sel=el('select');sel.id='rosterSel';sel.setAttribute('aria-label','Chọn tên của em');
+          sel.innerHTML='<option value="">— Chọn tên của em —</option>';
+          d.names.forEach(function(n){var o=el('option');o.value=n;o.textContent=n;sel.appendChild(o);});
+          var oo=el('option');oo.value='__other';oo.textContent='Tên con không có trong danh sách';sel.appendChild(oo);
+          sel.addEventListener('change',function(){$('otherWrap').style.display=(sel.value==='__other')?'block':'none';});
+          $('nameBox').innerHTML='';$('nameBox').appendChild(sel);rosterSel=sel;
+        }
+      }).catch(function(){clearTimeout(to);});
+  }catch(e){}
+}
+
+/* ---------- nộp bài ---------- */
+function countBlank(){
+  var n=ITEMS.filter(function(i){return !i.done;}).length;return n;
+}
+var lastPayload=null;
+function send(){
+  $('sendInfo').textContent='Đang gửi điểm cho cô...';$('resendBtn').style.display='none';
+  try{
+    fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lastPayload)})
+      .then(function(){$('sendInfo').textContent='✅ Bài làm đã được gửi cho cô.';})
+      .catch(function(){$('sendInfo').textContent='⚠️ Chưa gửi được điểm (có thể do mạng yếu). Em bấm “Gửi lại điểm” nhé.';$('resendBtn').style.display='inline-block';});
+  }catch(e){$('sendInfo').textContent='⚠️ Chưa gửi được điểm. Em bấm “Gửi lại điểm” nhé.';$('resendBtn').style.display='inline-block';}
+}
+$('resendBtn').addEventListener('click',send);
+function lock(on){document.querySelectorAll('textarea,#studentName,#otherName,#rosterSel').forEach(function(x){x.disabled=on;});
+  if(!LOP_LINK)$('studentClass').disabled=on;}
+$('submitBtn').addEventListener('click',function(){
+  if(graded)return;
+  var msg=$('msg'),cl=$('studentClass'),name=curName();
+  var nmEl=rosterSel?(rosterSel.value==='__other'?$('otherName'):rosterSel):$('studentName');
+  if(!name||!cl.value.trim()){
+    msg.textContent='Em hãy điền họ tên và lớp trước khi nộp bài nhé!';
+    nmEl.style.borderColor=name?'':'#d94b4b';cl.style.borderColor=cl.value.trim()?'':'#d94b4b';
+    (name?cl:nmEl).focus();return;
+  }
+  nmEl.style.borderColor='';cl.style.borderColor='';
+  var blank=countBlank();
+  if(blank>0&&!warned){warned=true;msg.textContent='Em còn '+blank+' câu chưa làm. Em kiểm tra lại nhé – nếu vẫn muốn nộp, hãy bấm “Nộp bài” lần nữa (câu bỏ trống tính là sai).';return;}
+  msg.textContent='';graded=true;
+  ITEMS.forEach(function(i){if(!i.done)i.force();});
+  document.body.classList.add('graded');lock(true);$('submitBtn').disabled=true;
+  var earned=0,total=0,wrong=[];
+  ITEMS.forEach(function(i){earned+=i.earned;total+=i.max;if(i.earned<i.max)wrong.push(i.label);});
+  var tl=OPENS.filter(function(o){return o.ta.value.trim();}).map(function(o){return o.label+': '+o.ta.value.trim();}).join('\n\n');
+  lastPayload={bai:BAI,hoten:name,lop:cl.value.trim(),loplink:LOP_LINK,diem:earned,tongdiem:total,causai:wrong.join(', '),tuluan:tl};
+  send();
+  var pct=total?earned/total:0,em,m;
+  if(pct>=.9){em='🌟';m='Tuyệt vời! Em làm bài rất xuất sắc!';}
+  else if(pct>=.7){em='😊';m='Rất tốt! Em xem lại các ô đỏ để giỏi hơn nữa nhé.';}
+  else if(pct>=.5){em='🙂';m='Khá lắm! Em đọc lại bài và các đáp án đúng nhé.';}
+  else{em='🌱';m='Đừng lo, em đọc lại bài rồi thử lại, em sẽ làm tốt hơn!';}
+  $('rEm').textContent=em;$('rSc').textContent=fmt(earned)+' / '+fmt(total)+' điểm';
+  $('r10').textContent='Quy ra thang 10: '+fmt(Math.round(pct*10*4)/4)+' điểm (phần máy chấm)';
+  $('rMsg').textContent=name+' ơi, '+m;
+  $('rTab').innerHTML=ITEMS.map(function(i){return '<tr><td>'+i.label+'</td><td>'+fmt(i.earned)+' / '+fmt(i.max)+'</td></tr>';}).join('');
+  $('result').classList.add('show');$('result').scrollIntoView({behavior:'smooth',block:'center'});
+});
+$('retryBtn').addEventListener('click',function(){
+  graded=false;warned=false;okN=0;noN=0;lock(false);$('submitBtn').disabled=false;$('msg').textContent='';
+  document.body.classList.remove('graded');
+  ITEMS.forEach(function(i){i.reset();});
+  OPENS.forEach(function(o){o.ta.value='';});
+  $('result').classList.remove('show');lastPayload=null;updProg();window.scrollTo({top:0,behavior:'smooth'});
+});
+})();
+</script>
+</body>
+</html>
